@@ -1,0 +1,6 @@
+@Rentalio2._0.Server_HostAddress = http://localhost:5250
+
+GET {{Rentalio2._0.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

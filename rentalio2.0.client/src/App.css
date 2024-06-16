@@ -1,0 +1,812 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Corbel;
+    height: auto;
+}
+.logo {
+    margin-left:30px;
+    width: 200px;
+    height: 40px;
+}
+.layout {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "sidebar main";
+    grid-template-columns: 220px 1fr;
+    height: 100%;
+}
+.App {
+    width: 100%;
+    height: 100vh;
+    background-color: #dedede;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+.button {
+    background-color: #e98a26;
+    height: 40px;
+    border: none;
+    border-radius: 3px;
+    padding: 8px 15px;
+    color: black;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 100px;
+    cursor: pointer;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    margin-top: 10px;
+    width: auto;
+}
+
+.button:hover {
+    background-color: #A3601A;
+}
+/* Subpages */
+
+.dashboard {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    display: flex;
+    padding: 0;
+    background-color: #151515;
+}
+.subpage {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    padding: 10px;
+    background-color: #151515;
+}
+
+/* Maintenance */
+
+.maintenance {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    padding: 10px;
+    background-color: #151515;
+    flex-direction: column;
+}
+
+.maintenance .table-striped {
+    width: 100px;
+    min-width:35vw;
+    max-width: none;
+    table-layout: auto;
+}
+
+.maintenance .table-striped tbody tr td {
+    width: auto;
+}
+
+.maintenance .tableSection {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    margin-top: 100px;
+}
+
+/* Fleet*/
+
+.fleet {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    padding: 10px;
+    background-color: #151515;
+    display: flex;
+    flex-direction: column;
+}
+
+.fleet .tableSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.fleet .table-striped {
+    width: 100px;
+    min-width: 35vw;
+    max-width: none;
+    table-layout: auto;
+    
+}
+
+.fleet .table-responsive {
+    overflow-x: auto;
+    max-height: 700px;
+}
+
+.iconFleet {
+    color: #e98a26;
+}
+.iconFleet :hover {
+  color:  #A3601A;
+}
+
+
+
+/* Fleet Mngmt*/
+
+.fleetManagement {
+    width: 100%;
+    height: 100vh;
+    background-color: #151515;
+    padding: 10px;
+}
+
+/* Deliveries + style tabeli + searchbara*/
+
+.deliveries {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    padding: 10px;
+    background-color: #151515;
+    display: flex;
+    flex-direction:column;
+}
+
+.table {
+    width: 85vw;
+    min-width: 1000px; 
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #4d4d4d;
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: #5d5d5d;
+}
+.table-striped tbody tr td {
+    color: white;
+    height: 50px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.table-striped tbody tr:hover {
+    cursor: pointer;
+    background-color: #151515;
+}
+.table-responsive {
+    overflow-x: auto;
+    margin-top:10px;
+}
+
+.searchBar {
+    width: 300px;
+}
+
+/* Vehicle + wszystkie style do vehicle etc. */
+
+
+.vehicle {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    padding: 10px;
+    background-color: #151515;
+    display: flex;
+    flex-direction: column;
+}
+
+.vehicle .dataSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+}
+
+.vehicle .tablesSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.vehicle .table-striped {
+    width: 100px;
+    min-width: 35vw;
+    max-width: none;
+    table-layout: auto;
+}
+
+
+.vehicle .tableResponsive {
+    overflow-x: auto;
+    margin-top: 10px;
+    width: auto;
+    max-height: 230px;
+}
+
+
+
+
+
+
+/* Booking subpage*/
+.booking {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    padding: 10px;
+    background-color: #151515;
+    display: flex;
+    flex-direction: column;
+}
+
+.booking .title {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+    background-color: #2d2d2d;
+}
+
+
+.booking .pickupField {
+    margin-top: 40px;
+    margin-right: 8px;
+    padding: 25px;
+    width: 50%;
+    height: 18vh;
+    border-radius: 5px;
+    background-color: #2d2d2d;
+    font-family: Corbel;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+.booking .paymentField {
+    margin-top: 40px;
+    padding: 25px;
+    width: 25%;
+    height: 18vh;
+    border-radius: 5px;
+    background-color: #2d2d2d;
+    font-family: Corbel;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.booking .right {
+    position: absolute;
+    right: 20px;
+    font-family: Corbel;
+    font-size: 20px;
+    justify-content: center;
+    margin-left: 500px;
+    color: lightblue;
+}
+
+.booking .text{
+    font-family: Corbel;
+    font-size: 20px;
+    justify-content:center;
+    color: lightblue;
+    margin-left: 20px;
+}
+
+
+.booking .fieldContainerPickups {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+.booking .fieldContainerPickups .icon {
+    position: absolute;
+    color: #e98a26;
+    font-size: 50px;
+    left: 45%; 
+    top: 50%; 
+    
+}
+
+
+.booking .fieldContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.booking .customerInfo {
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+    width: 100%;
+    height: 180px;
+    padding: 20px;
+    background-color: #2d2d2d;
+}
+
+
+
+.booking .insurance {
+    width: 25%;
+    height: 300px;
+    padding: 20px;
+    background-color: #2d2d2d;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.booking .extras {
+    width: 40%;
+    height: 300px;
+    padding: 20px;
+    background-color: #2d2d2d;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.booking .price {
+    width: 30%;
+    height: 300px;
+    padding: 20px;
+    padding-top: 40px;
+    background-color: #2d2d2d;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+}
+
+/* Sidebar */
+
+.sidebar {
+    height: 100%;
+    width: 220px;
+    background-color: #2d2d2d;
+}
+
+.sidebarList {
+    height: auto;
+    padding: 0;
+    width: auto;
+}
+
+.sidebarList .row {
+    width: 100%;
+    height: 60px;
+    list-style-type: none;
+    margin: 0%;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-family: Corbel;
+}
+
+.sidebarList .row:hover {
+    cursor: pointer;
+    background-color: #151515;
+}
+
+.row #icon {
+    flex: 30%;
+    display: grid;
+    place-items: center;
+    color: #e98a26;
+}
+
+.row #icon:hover {
+    color: #b08100
+}
+
+
+.row #title {
+    flex: 70%;
+}
+/* Header */
+
+.header {
+    grid-area: header;
+    display: flex;  
+    flex-direction: row;  
+    justify-content: flex-start;  
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background-color: #2d2d2d;
+}
+
+.header .leftSide {
+    flex: 50%;
+    margin-left: 45px;
+}
+
+.header .rightSide {
+    grid-area: header;
+    display: flex;  
+    flex-direction: row;  
+    justify-content: flex-start;  
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    flex: 50%;
+    padding-right: 10px;
+    margin-left: 70%;
+}
+
+.header .icons {
+    margin: 5px;
+    width: 35px;
+    height: 35px;
+    color: #e98a26;
+}
+
+.header .rightSide .text {
+    color: white;
+    font-family: Corbel;
+}
+
+.dashboardTitle {
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: white;
+    text-align: start;
+    align-self: start;
+    justify-self: start;
+    font-family: Corbel;
+}
+
+/* Delivery OVerview */
+
+.deliveryOverview {
+    margin: 20px;
+    margin-right: 0;
+    padding: 5%;
+    width: 600px;
+    height: 575px;
+    background-color: #2d2d2d;
+    border-radius: 10px;
+}
+.deliveryOverview:hover {
+    background-color: #292929;
+}
+
+.fleetUtilizationDiag {
+    margin: 20px;
+    padding: 10px;
+    width: 600px;
+    height: 275px;
+    background-color: #2d2d2d;
+    border-radius: 10px;
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+    font-family: Corbel;
+}
+.fleetUtilizationDiag:hover {
+    background-color: #292929;
+}
+
+/* Booking items */
+
+.bookingItem {
+    display: flex;
+    align-items: center;
+    margin: 3px;
+    padding: 0 10px; 
+    width: 500px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #4d4d4d;
+    font-family: Corbel;
+    position: relative; 
+}
+
+.bookingItem .icons {
+    
+    color: #e98a26;
+}
+
+.bookingItem .title {
+    color: white;
+    margin-left: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bookingItem .time {
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.bookingItem:hover {
+    cursor: pointer;
+    background-color: #151515;
+    box-shadow: 5px 2px 2px #232323;
+}
+
+/* Dashboard shortcut window */
+
+.dashboardShortcuts {
+    align-items: center;
+    margin: 20px;
+    padding: 10px;
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;
+    background-color: #2d2d2d;
+    font-family: Corbel;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    
+}
+
+.shortcutItem {
+    width: 120px;
+    height: 120px;
+    background-color: #151515;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+    margin: 20px;
+    border-radius: 10px;
+}
+.shortcutItem:hover {
+    color: #fff;
+}
+
+.shortcutIcon {
+    height: 60px;
+    width: 60px;
+    color: #e98a26;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.dashboardShortcuts:hover {
+    background-color: #292929;
+    cursor: pointer;
+}
+
+/* Dashboard live feed*/
+
+.liveFeed {
+    align-items: center;
+    margin: 20px;
+    padding: 10px;
+    width: 400px;
+    height: 550px;
+    border-radius: 10px;
+    background-color: #2d2d2d;
+    font-family: Corbel;
+}
+.liveFeed:hover {
+    background-color: #292929;
+}
+
+/* Dashboard search booking*/
+
+.searchBooking {
+    align-items: center;
+    margin: 20px;
+    padding: 10px;
+    width: 500px;
+    height: 150px;
+    border-radius: 10px;
+    background-color: #2d2d2d;
+    font-family: Corbel;
+}
+.search-bar {
+    padding: 10px;
+    padding-right: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 500px;
+    justify-content: space-evenly
+}
+
+.searchButton {
+    height: 35px;
+    width: 35px;
+    margin-left: 100px;
+    color: #e98a26;
+}
+.searchButton:hover {
+    color: #c97216;
+    cursor: pointer;
+}
+
+.searchBooking:hover {
+    background-color: #292929;
+}
+
+/*Check availability*/
+
+.checkAvailability {
+    align-items: center;
+    margin: 20px;
+    padding: 10px;
+    width: 500px;
+    height: 190px;
+    border-radius: 10px;
+    background-color: #2d2d2d;
+    font-family: Corbel;
+}
+.checkAvailability:hover {
+    background-color: #292929;
+}
+
+.newBookings {
+    align-items: center;
+    margin: 20px;
+    padding: 10px;
+    width: 500px;
+    height: 490px;
+    border-radius: 10px;
+    background-color: #2d2d2d;
+    font-family: Corbel;
+}
+.newBookings:hover {
+    background-color: #292929;
+}
+
+
+/* Timeline*/
+
+.custom-timeline {
+    margin-left: 20px;
+}
+
+.custom-timeline .rs-timeline-item-custom-dot .rs-icon {
+    position: absolute;
+    background: #fff;
+    top: 0;
+    left: -2px;
+    border: 1px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 18px;
+    color: #e98a26;
+    margin-left: -13px;
+    justify-content: center;
+    padding: 8px;
+}
+
+.custom-timeline .rs-timeline-item-content {
+    margin-left: 24px;
+}
+
+.rs-timeline-item-content p {
+    margin: 0;
+}
+
+
+.rs-timeline-item:hover {
+    color: #fff;
+    cursor:pointer;
+}
+
+/** dropdown menu */
+
+.dropdown {
+
+
+    display:flex;
+    flex-direction: column;
+    width: 200px;
+    max-width: 200px;
+    position: relative;
+    border-radius: 5px;
+    align-self: center;
+}
+
+.dropdown > .options {
+    position: absolute;
+    top: 100%;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 10;
+}
+
+.dropdown > .options.visible {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+
+.dropdown > .toggle,
+.dropdown > .options button{
+    display: flex;
+    justify-content: space-between;
+    text-align: start;
+    padding: 5px, 10px;
+    border: 1px solid #aaa;
+    background-color: #eee;
+    transition: background-color 0.05s ease;
+    cursor: pointer;
+}
+
+.dropdown > .options button{
+    border-top: 0;
+}
+
+.dropdown > .options button.selected {
+    background-color: #ddd;
+    cursor: default;
+
+}
+
+.dropdown > .options button:hover,
+.dropdown > .toggle:hover {
+    background-color: #ccc;
+}
+
+ 
+
+/* add work order*/
+
+
+.addWorkOrder {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    padding: 10px;
+    background-color: #151515;
+}
+
