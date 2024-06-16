@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import  { useState, useEffect, useRef } from "react";
 
 
 export const DropdownMail = () => {
@@ -35,15 +35,14 @@ export const DropdownMail = () => {
                 {selectedOption ? selectedOption.label : "Select bookings"}
             </button>
             <div className={`options ${dropDownToggled ? "visible" : ""}`}>
-                {dropDownOptions.map((option, index) => (
+                {dropDownOptions.map((option) => (
                     <button
                         key={option.id}
                         className={selectedOption === option ? "selected" : ""}
                         onClick={() => {
                             setSelectedOption(option);
                             setDropDownToggled(false);
-                        }}
-                    >
+                        }}>
                         {option.label}
                     </button>
                 ))}

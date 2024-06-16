@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
-
+import  { useState, useEffect, useRef } from "react";
 
 export const DropdownIssues = () => {
     const [dropDownToggled, setDropDownToggled] = useState(false);
@@ -12,7 +11,6 @@ export const DropdownIssues = () => {
                 setDropDownToggled(false);
             }
         }
-
         document.addEventListener('click', handler);
 
         return () => {
@@ -40,7 +38,7 @@ export const DropdownIssues = () => {
                 {selectedOption ? selectedOption.label : "Select Issue"}
             </button>
             <div className={`options ${dropDownToggled ? "visible" : ""}`}>
-                {dropDownOptions.map((option, index) => (
+                {dropDownOptions.map((option) => (
                     <button
                         key={option.id}
                         className={selectedOption === option ? "selected" : ""}

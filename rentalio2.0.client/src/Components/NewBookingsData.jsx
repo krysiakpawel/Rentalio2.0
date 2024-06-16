@@ -1,5 +1,4 @@
 
-
 export const DeliveryOverviewData = [
     {
         title: "Pick Up. Toyota Yaris DM121",
@@ -33,5 +32,4 @@ export const DeliveryOverviewData = [
         title: "Pick Up. Nissan X-Trail - NZP67",
         time: "14:45",
     },
-
 ]

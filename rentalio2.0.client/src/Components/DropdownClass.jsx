@@ -1,4 +1,4 @@
-import React, { useState , useEffect, useRef} from "react";
+import  { useState , useEffect, useRef} from "react";
 
 
 export const DropdownClass = () => {
@@ -11,8 +11,6 @@ export const DropdownClass = () => {
                 if (!dropdownRef.current.contains(e.target)) {
                     setDropDownToggled(false);
                 }
-
-
             }
         }
         document.addEventListener('click', handler)
@@ -65,16 +63,14 @@ export const DropdownClass = () => {
                 {selectedOption ? selectedOption.label : "Select Class"}
             </button>
             <div className={`options ${dropDownToggled ? "visible" : ""}`}>
-                {dropDownOptions.map((option, index) => (
+                {dropDownOptions.map((option) => (
                     <button
                         key={option.id}
                         className={selectedOption === option ? "selected" : ""}
                         onClick={() => {
                             setSelectedOption(option);
                             setDropDownToggled(false);
-                        }
-                        }
-                    >
+                        }}>
                         {option.label}
                     </button>
                 ))}

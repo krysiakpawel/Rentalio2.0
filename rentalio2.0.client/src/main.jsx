@@ -22,8 +22,6 @@ import { WorkOrder } from './Pages/WorkOrder.jsx';
 import { Mail } from './Pages/Mail.jsx';
 
 
-
-
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         {/*<RouterProvider router={router} />*/}

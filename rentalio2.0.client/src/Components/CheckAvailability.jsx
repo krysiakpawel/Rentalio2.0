@@ -1,23 +1,19 @@
 import '../App.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import React, { useState } from "react";
+import { useState } from "react";
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import { FaSearch } from "react-icons/fa";
 import { DropdownClass } from './DropdownClass';
 
-
 export function CheckAvailability() {
     const [date1, setDate1] = useState(new Date());
     const [date2, setDate2] = useState(new Date());
     const handleCheckAvailability = () => {
-        // Check if date2 is later than date1
         if (date2 > date1) {
-            // Perform your action, e.g., redirect to another page
             window.location.pathname = "./";
         } else {
-            // Handle the case where date2 is not later than date1
             alert("Return date must be after the pick up date");
         }
     };
@@ -48,8 +44,6 @@ export function CheckAvailability() {
                     </Button>
                 </Container>
             </Container>
-            
-
         </div>
     )
 }

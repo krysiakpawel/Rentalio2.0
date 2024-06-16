@@ -61,8 +61,6 @@ export function NewBookings() {
                     <text style={{ marginRight: '5px', color: 'white' }}>Kia Rio or similar</text>
                     <text style={{ marginRight: '5px', color: 'white' }}>21.06.2024 04:30 PM</text>
                 </Container>
-                
-
             </Container>
         </div>
     )

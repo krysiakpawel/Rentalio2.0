@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { DropdownLocation } from '../Components/DropdownLocation';
 import DatePicker from "react-datepicker";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import { DropdownClass } from '../Components/DropdownClass';
 import { MdAssignmentAdd } from "react-icons/md";
@@ -28,15 +28,13 @@ export const AddBooking = () => {
         country: ""
     });
 
-
-
-
-
     const [days, setDaysDifference] = useState(0);
     const [vehicleTotal, setVehicleTotal] = useState(0);
     const [amount, setAmount] = useState(0);
     const [insurance, setInsurance] = useState(0);
     const [insuranceTotal, setInsuranceTotal] = useState(0);
+    const [extrasTotal, setExtrasTotal] = useState(0);
+
     const insurancePrices = {
         platinumAssistance: 2490,
         platinum: 2099,
@@ -45,15 +43,40 @@ export const AddBooking = () => {
         bronze: 599,
         declineAll: 0
     };
+    const extras = {
+        gps: 249,
+        wifi: 249,
+        roadMap: 35,
+        fuelDiscount: 0,
+        roofBox: 1099,
+        bikeRoofRack: 899,
+        extraDriver: 1249,
+        boosterSeat: 1099,
+        childSeat1: 1099,
+        childSeat2: 1099,
+        roofTent: 2490,
+        kitchenBox: 895,
+    };
     const pricePerDay = 2595;
 
     const handleInputChange = (event) => {
-        const { name, value } = event.target;
+        const { name, value,  } = event.target;
         setFormData({
             ...formData,
             [name]: value
         });
     };
+    const handleExtrasChange = (event) => {
+        const { checked, value } = event.target;
+        const selectedExtrasPrice = extras[value] || 0;
+
+        const newExtrasTotal = checked
+            ? extrasTotal + selectedExtrasPrice * days
+            : extrasTotal - selectedExtrasPrice * days;
+
+        setExtrasTotal(newExtrasTotal);
+    };
+
     const handleInsuranceChange = (event) => {
         const selectedInsurance = insurancePrices[event.target.value];
         setInsurance(event.target.checked ? selectedInsurance : 0);
@@ -62,15 +85,14 @@ export const AddBooking = () => {
     useEffect(() => {
         const daysDifference = calculateDays();
         setDaysDifference(daysDifference);
-
         const newInsuranceTotal = insurance * daysDifference || 0;
         setInsuranceTotal(newInsuranceTotal);
-
         const newVehicleTotal = pricePerDay * daysDifference;
         setVehicleTotal(newVehicleTotal);
+        const totalAmount = newInsuranceTotal + newVehicleTotal ;
+        setAmount(totalAmount);
 
-        setAmount(newInsuranceTotal + vehicleTotal);
-    }, [date1, date2, insurance]);
+    }, [date1, date2, insurance, formData]);
 
     const handleDate1Change = (date) => {
         setDate1(date);
@@ -139,9 +161,9 @@ export const AddBooking = () => {
                         <text style={{ color: 'white', fontSize: '20px' }}>Remaining</text>
                     </Container>
                     <Container style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-                        <text style={{ color: 'white', fontSize: '25px' }}>0 ISK</text>
+                        <text style={{ color: 'white', fontSize: '25px' }}>{amount} ISK</text>
                         <text style={{ color: 'white', fontSize: '20px' }}>0 ISK</text>
-                        <text style={{ color: 'white', fontSize: '20px' }}>0 ISK</text>
+                        <text style={{ color: 'white', fontSize: '20px' }}>{amount} ISK</text>
                         
                     </Container>
                 </Container>
@@ -241,8 +263,8 @@ export const AddBooking = () => {
                         />
                         <Form.Check
                             type="radio"
-                            value="platinumAssistance"
-                            name="silver"
+                            value="silver"
+                            name="insurance"
                             style={{ marginBottom: '8px' }}
                             onChange={handleInsuranceChange}
                         />
@@ -271,16 +293,45 @@ export const AddBooking = () => {
                     </Container>
                 </Container>
 
-
                 <Container className="extras">
                     <Container style={{ display: 'flex', flexDirection: 'row' }} >
                         <Container style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                            <Form.Check aria-label="option 1" style={{ marginBottom: '8px' }} />
-                            <Form.Check aria-label="option 2" style={{ marginBottom: '8px' }} />
-                            <Form.Check aria-label="option 3" style={{ marginBottom: '8px' }} />
-                            <Form.Check aria-label="option 4" style={{ marginBottom: '8px' }} />
-                            <Form.Check aria-label="option 5" style={{ marginBottom: '8px' }} />
-                            <Form.Check aria-label="option 6" style={{ marginBottom: '8px' }} />
+                            <Form.Check
+                                value="gps"
+                                name="extras"
+                                style={{ marginBottom: '8px' }}
+                                onChange={handleExtrasChange}
+                            />
+                            <Form.Check
+                                value="wifi"
+                                name="extras"
+                                style={{ marginBottom: '8px' }}
+                                onChange={handleExtrasChange}
+                            />
+                            <Form.Check
+                                value="roadMap"
+                                name="extras"
+                                style={{ marginBottom: '8px' }}
+                                onChange={handleExtrasChange}
+                            />
+                            <Form.Check
+                                value="fuelDiscount"
+                                name="extras"
+                                style={{ marginBottom: '8px' }}
+                                onChange={handleExtrasChange}
+                            />
+                            <Form.Check
+                                value="roofBox"
+                                name="extras"
+                                style={{ marginBottom: '8px' }}
+                                onChange={handleExtrasChange}
+                            />
+                            <Form.Check
+                                value="bikeRoofRack"
+                                name="extras"
+                                style={{ marginBottom: '8px' }}
+                                onChange={handleExtrasChange}
+                            />
                         </Container>
                         <Container style={{ display: 'flex', flexDirection: 'column', justifyItem: 'left', marginLeft: '10px' }}>
                             <text style={{ marginBottom: '8px', color: 'white' }}>GPS</text>
@@ -295,12 +346,42 @@ export const AddBooking = () => {
                         <Container style={{
                             display: 'flex', flexDirection: 'column', alignItems: 'flex-start'
                         }}>
-                            <Form.Check aria-label="option 1" style={{ marginBottom: '8px' }} />
-                            <Form.Check aria-label="option 2" style={{ marginBottom: '8px' }} />
-                            <Form.Check aria-label="option 3" style={{ marginBottom: '8px' }} />
-                            <Form.Check aria-label="option 4" style={{ marginBottom: '8px' }} />
-                            <Form.Check aria-label="option 5" style={{ marginBottom: '8px' }} />
-                            <Form.Check aria-label="option 6" style={{ marginBottom: '8px' }} />
+                            <Form.Check
+                                value="extraDriver"
+                                name="extras"
+                                style={{ marginBottom: '8px' }}
+                                onChange={handleExtrasChange}
+                            />
+                            <Form.Check
+                                value="boosterSeat"
+                                name="extras"
+                                style={{ marginBottom: '8px' }}
+                                onChange={handleExtrasChange}
+                            />
+                            <Form.Check
+                                value="childSeat1"
+                                name="extras"
+                                style={{ marginBottom: '8px' }}
+                                onChange={handleExtrasChange}
+                            />
+                            <Form.Check
+                                value="childSeat2"
+                                name="extras"
+                                onChange={handleExtrasChange}
+                                style={{ marginBottom: '8px' }}
+                            />
+                            <Form.Check
+                                value="roofTent"
+                                name="extras"
+                                onChange={handleExtrasChange}
+                                style={{ marginBottom: '8px' }}
+                            />
+                            <Form.Check
+                                value="kitchenBox"
+                                name="extras"
+                                onChange={handleExtrasChange}
+                                style={{ marginBottom: '8px' }}
+                            />
                         </Container>
                         <Container style={{ display: 'flex', flexDirection: 'column', justifyItem: 'left', marginLeft: '10px' }}>
                             <text style={{ marginBottom: '8px', color: 'white' }}>Extra driver</text>
@@ -321,12 +402,14 @@ export const AddBooking = () => {
                         <text style={{ color: 'white', fontSize: '20px' }}>Number of days:</text>
                         <text style={{ color: 'white', fontSize: '20px' }}>Vehicle:</text>
                         <text style={{ color: 'white', fontSize: '20px' }}>Insurance: </text>
+                        <text style={{ color: 'white', fontSize: '20px' }}>Extras: </text>
                     </Container>
                     <Container style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
                         <text style={{ color: 'white', fontSize: '20px' }}>{amount} ISK</text>
                         <text style={{ color: 'white', fontSize: '20px' }}>{days} ISK</text>
                         <text style={{ color: 'white', fontSize: '20px' }}>{vehicleTotal} ISK</text>
                         <text style={{ color: 'white', fontSize: '20px' }}>{insuranceTotal} ISK</text>
+                        <text style={{ color: 'white', fontSize: '20px' }}>{extrasTotal} ISK</text>
                     </Container>
                 </Container>
             </Container>

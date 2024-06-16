@@ -3,7 +3,6 @@ import { FaWpforms } from "react-icons/fa";
 import { CiBoxList } from "react-icons/ci";
 import { FaCarSide } from "react-icons/fa";
 import { BiSolidCarGarage } from "react-icons/bi";
-import { MdAttachMoney } from "react-icons/md";
 import { BiSolidCarMechanic } from "react-icons/bi";
 
 export const SidebarData = [

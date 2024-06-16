@@ -3,7 +3,6 @@ import { MdAssignmentAdd } from "react-icons/md";
 import { FaWrench } from "react-icons/fa6";
 import Container from 'react-bootstrap/Container';
 
-
 export function DashboardShortcuts() {
     return (
         <div className="dashboardShortcuts">

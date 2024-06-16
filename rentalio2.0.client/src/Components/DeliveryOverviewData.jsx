@@ -42,5 +42,4 @@ export const DeliveryOverviewData = [
         time: "14:45",
         icon: <FiArrowUpRight />,
     },
-
 ]

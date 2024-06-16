@@ -1,6 +1,5 @@
 import '../App.css';
 import ReactSearchBox from "react-search-box";
-import { IoMdSearch } from "react-icons/io";
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import { FaSearch } from "react-icons/fa";
